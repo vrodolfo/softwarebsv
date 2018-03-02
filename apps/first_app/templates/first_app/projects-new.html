@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Software BSV - Proyectos</title>
+		<!-- Boostrap Core -->
+	<link rel="stylesheet" href="{% static '../static/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '../static/style.css' %}">
+	<link rel="stylesheet" href="{% static '../static/backendstyle.css' %}">
+	<link rel="icon" href="{% static '/../static/images/minilogo.png' %}" />
+</head>
+<body class="backend">
+
+	{% include './backendMenu.html' %}
+
+	<div class="container about-div">
+		
+		<h1 class="about-title">Agregar Proyecto</h1>
+		<a class="new"  href="/projects/">Volver a Proyectos</a>
+
+			{% if messages %}
+			<ul class="messages">
+			    {% for message in messages %}
+			    <li{% if message.tags %} class="{{ message.tags }} red"{% endif %}>{{ message }}</li>
+			    {% endfor %}
+			</ul>
+			{% endif %}
+		<form action="/projects/add" method="post">
+			{% csrf_token %}
+			<table class="about-table">
+				<tr>
+					<td class="about-table-title">Idioma:</td>
+					<td class="about-table-content">
+						<select name="language" id="language">
+							<option value="spanish">Espanol</option>
+							<option value="english">Ingles</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Cliente:</td>
+					<td class="about-table-content">
+						<select name="client" id="client">
+							<option value="">--Seleccione un Cliente--</option>
+							{% for client in clients2 %}
+								<option value="{{client.id}}">{{client.name}}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Nombre:</td>
+					<td class="about-table-content"><input type="text" name="name"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Nombre Corto:</td>
+					<td class="about-table-content"><input type="text" name="nameShort"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Nombre Largo:</td>
+					<td class="about-table-content"><input type="text" name="nameLarge"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Estatus del Proyecto:</td>
+					<td class="about-table-content"><input type="text" name="projectsStatus"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Posicion:</td>
+					<td class="about-table-content"><input type="number" name="position"  maxlength="10"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Cantidad de Horas:</td>
+					<td class="about-table-content"><input type="number" name="hours"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Featured:</td>
+					<td class="about-table-content">
+						<select name="featured" id="featured">
+							<option value="True">True</option>
+							<option value="False">False</option>
+						</select>
+					</td>
+				</tr>
+		
+				<tr>
+					<td class="about-table-title">Estatus:</td>
+					<td class="about-table-content">
+						<select name="active" id="active">
+							<option value="True">Activo</option>
+							<option value="False">Inactivo</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Link Estatus:</td>
+					<td class="about-table-content">
+						<select name="linkstatus" id="linkstatus">
+							<option value="True">Active</option>
+							<option value="False">Inactive</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Imagen Carrousel:</td>
+					<td class="about-table-content"><input type="text" name="imageSlider"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Imagen Menu:</td>
+					<td class="about-table-content"><input type="text" name="imageMenu"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Imagen Details1:</td>
+					<td class="about-table-content"><input type="text" name="imageDetails1"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Imagen Details2:</td>
+					<td class="about-table-content"><input type="text" name="imageDetails2"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Imagen Details3:</td>
+					<td class="about-table-content"><input type="text" name="imageDetails3"  maxlength="255"></td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Contenido Menu:</td>
+					<td class="about-table-content">
+						<textarea name="descShort" id="" cols="30" rows="10" maxlength="255"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Contenido Detalle:</td>
+					<td class="about-table-content">
+						<textarea name="descLong" id="" cols="30" rows="10" maxlength="5000"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Plataforma:</td>
+					<td class="about-table-content">
+						<textarea name="platform" id="" cols="30" rows="10" maxlength="5000"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Tecnologias:</td>
+					<td class="about-table-content">
+						<textarea name="technologies" id="" cols="30" rows="10" maxlength="5000"></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><input class="login-button" type="submit" value="Agregar Proyecto"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<br><br><br><br>
+	{% include './footer2.html' %}
+</body>
+	{% include './scripts.html' %}
+</html>

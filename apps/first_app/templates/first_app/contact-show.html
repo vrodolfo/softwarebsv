@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Software BSV - Contacto</title>
+	<!-- Boostrap Core -->
+	<link rel="stylesheet" href="{% static '/../static/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/style.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/backendstyle.css' %}">
+	<link rel="icon" href="{% static '/../static/images/minilogo.png' %}" />
+</head>
+<body class="backend" id="body">
+	
+	{% include './menu-details.html' %}
+	<div class="content">
+
+	<div class="container about-div">
+			
+			<h1 class="about-title">
+				{% if request.session.language == "english" %}
+					Contact
+				{%else%}
+					Contacto
+				{%endif%}
+			</h1>
+
+
+			<br><br>
+
+			<h2 class="about-subtitle">
+				{{company.name}}
+			</h2>
+			{% if messages %}
+			<ul class="messagesEmail">
+			    {% for message in messages %}
+			    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			    {% endfor %}
+			</ul>
+			{% endif %}
+
+
+			{% if request.session.language == "english" %}
+			<div class="about-content">
+				<h3>Phone: {{company.phone1}}</h3>
+				<h3>Address: {{company.address1}}</h3>
+				<h3>Email: {{company.email}}</h3>
+				
+				<br>
+				<h2 class="about-subtitle">
+					Send Email
+				</h2>
+				<form action="/contact/email" method="post">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="name">Full Name:</label>
+						<input type="text" name="name" id="name" class="form-control" placeholder="Full name/company....." required>
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" class="form-control" placeholder="email@domain.com" maxlength="255" required>
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Phone Number</label>
+						<input type="phone" name="phone" id="phone" class="form-control" placeholder="0123.456.78.90" maxlength="100"  required>
+					</div>
+
+					<div class="form-group">
+						<label for="subject">Subject</label>
+						<input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" maxlength="255"  required>
+					</div>
+
+					<div class="form-group">
+						<label for="message">Message:</label>
+						<textarea maxlength="500" class="form-control" rows="3" name="message" id="message" cols="30" rows="10" maxlength=""  placeholder="Leave a message...." required></textarea>
+					</div>
+
+					<div class="form-group text-right">
+						<button class="btn enviar" type="submit">
+							Send
+						</button>
+						<button type="button" class="btn enviar" data-dismiss="modal">
+							Cancel
+						</button>
+					</div>
+				</form>
+				
+			</div>
+
+			{% else %}
+			<div class="about-content">
+				<h3>Tel&eacute;fono: {{company.phone1}}</h3>
+				<h3>Direcci&oacute;n: {{company.address1}}</h3>
+				<h3>Email: {{company.email}}</h3>
+				
+				<br>
+				<h2 class="about-subtitle">
+					Enviar Email
+				</h2>
+				<form action="/contact/email" method="post">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="name">Nombre:</label>
+						<input type="text" name="name" id="name" class="form-control" placeholder="Nombre/Empresa....." required>
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" class="form-control" placeholder="email@dominio.com" maxlength="255" required>
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Tel&eacute;fono</label>
+						<input type="phone" name="phone" id="phone" class="form-control" placeholder="0123.456.78.90" maxlength="100"  required>
+					</div>
+
+					<div class="form-group">
+						<label for="subject">Asunto</label>
+						<input type="text" name="subject" id="subject" class="form-control" placeholder="Asunto" maxlength="255"  required>
+					</div>
+
+					<div class="form-group">
+						<label for="message">Mensaje:</label>
+						<textarea maxlength="500" class="form-control" rows="3" name="message" id="message" cols="30" rows="10" maxlength=""  placeholder="Deje un mensaje...." required></textarea>
+					</div>
+
+					<div class="form-group text-right">
+						<button class="btn enviar" type="submit">
+							Enviar
+						</button>
+						<button type="button" class="btn enviar" data-dismiss="modal">
+							Cancelar
+						</button>
+					</div>
+				</form>
+				
+			</div>
+
+			{%endif%}
+
+
+			<br><br>
+
+	
+		
+	</div>
+
+<br><br>
+
+
+</div>
+	{% include './footer2.html' %}
+</body>
+
+<!-- scripts -->
+	<script src="/../static/js/jquery-3.1.1.js"></script>
+	<script src="/../static/js/jquery.easing.1.3.js"></script>
+	<script src="/../static/js/bootstrap.min.js"></script>
+	<script src="/../static/js/myscrollto.js"></script>	
+	<script src="/../static/js/owl.carousel.min.js"></script>
+	<script src="/../static/js/custom.js"></script>
+
+</html>

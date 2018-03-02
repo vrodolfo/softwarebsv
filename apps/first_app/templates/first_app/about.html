@@ -1,0 +1,231 @@
+
+
+	<section class="container-fluid parallax about" id="about">
+		<br><br>
+		<div class="row row2">
+			<article class="col-md-offset-1 col-md-10 col-md-offset-1">
+				{% if request.session.language == "english" %}
+				    <h1>About</h1>
+				{% else %}
+				    <h1>¿Qui&eacute;nes Somos?</h1>
+				{% endif %}
+				
+				<br>
+				<div class="parrafo"> 
+				
+				{% if request.session.language == "english" %}
+				    {{company.about_english|linebreaks}}
+				{% else %}
+				    {{company.about_spanish|linebreaks}}
+				{% endif %}
+
+				</div>
+			</article>
+		</div>
+		<br>
+		<div class="row row2">
+			<article class="col-md-offset-1 col-md-10 col-md-offset-1">
+				{% if request.session.language == "english" %}
+				    <h3>Areas of Expertise:</h3>
+				{% else %}
+				    <h3>Areas de Experticia:</h3>
+				{% endif %}
+				
+			</article>
+		</div>
+		<div class="row row2">
+			<div class="col-md-2"></div>
+			<div class="col-md-2 center-block">
+
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Consulting
+						{% else %}
+						    Consultoria
+						{% endif %}
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Development
+						{% else %}
+						    Desarrollo
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Tech. Support
+						{% else %}
+						    Soporte T&eacute;cnico
+						{% endif %}
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Web-Developmnt
+						{% else %}
+						    Desarrollo Web
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div> 
+		<br><br>
+		<div class="row row2">
+			<div class="col-md-2"></div>
+			<div class="col-md-2 center-block">
+
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						Mainframe
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Projects
+						{% else %}
+						    Proyectos
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						Man-power
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 center-block">
+				<div class="contenedor">
+					<div class="circle2"></div>
+					<div class="circle">
+						{% if request.session.language == "english" %}
+						    Optmization
+						{% else %}
+						    Optimizaci&oacute;n
+						{% endif %}
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div> 
+		<br><br><br><br>
+
+		
+		<div class="row row2">
+			<div class="col-md-offset-1 col-md-11">
+				{% if request.session.language == "english" %}
+				    <h1 class="subtitle">Awards</h1>
+				{% else %}
+				    <h1 class="subtitle">Reconocimientos</h1>
+				{% endif %}
+			</div>
+			<br>
+		</div>
+		<div class="row row2">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				{% if request.session.language == "english" %}
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Awarded by CANTV: Recognition to best providers, category staffing, years 2001 and 2002.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Awarded by CANTV: Recognition for been best provider, category staffing, year 2003.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Awarded by BBVA Provincial Bank: Socket TCP/IP Re-engineering, Network SWITCH 7B.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Awarded by BBVA Provincial Bank: Re-engineering CICS queues for the Payment Method Authorizer.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Awarded by BBVA Provincial Bank: Optimizing CPU comsuption for all transactin with high levels.
+						</p>
+					</div>
+
+
+				{% else %}
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Otorgado por CANTV: Premio a proveedores, categoría suministro de personal, años 2001 y 2002.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Otorgado por CANTV: Premio como mejor proveedor en la categoría suministro 	de personal del año 2003.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Otorgado por BBVA Banco Provincial: Reingeniería de los socket TCP/IP, Red SUICHE 7B.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Otorgado por BBVA Banco Provincial: Reingeniería del Manejo de Colas CICS por el Autorizador de Medios de Pago.
+						</p>
+					</div>
+					<br><br>
+					<div class="award-div">
+						<img class="award" src="/../static/images/award.png" alt="">
+						<p class="award-content">
+							Otorgado por BBVA Banco Provincial: Mejoras de todas las transacciones con exceso de CPU.
+						</p>
+					</div>
+				{%endif%}
+				<br><br> 
+			</div>
+			<div class="col-md-1"></div>
+	</div>
+	</section>

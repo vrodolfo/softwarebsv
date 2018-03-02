@@ -1,0 +1,31 @@
+
+<section class="parallax owl-carousel owl-theme" id="inicio">
+
+	{% for service in services %}
+	{% if service.active %}
+	{% if service.linkstatus %}
+		<a href="/services/{{service.id}}/show">
+		 <div class="item" id="foto1">
+			<p class="services2">{{service.serviceNameS}}</p>
+			{% if service.imageSlider %}
+		 	<img class="carrouselPic" src="/../static/images/{{service.imageSlider}}" alt="">
+		 	{% else %}
+			<img class="carrouselPic" src="/../static/images/noimage.png" alt="">
+		 	{% endif %}
+		 </div>
+		</a>
+	{% else %}
+		<div class="item" id="foto1">
+			<p class="services2">{{service.serviceNameS}}</p>
+		 	{% if service.imageSlider %}
+		 	<img class="carrouselPic" src="/../static/images/{{service.imageSlider}}" alt="">
+		 	{% else %}
+			<img class="carrouselPic" src="/../static/images/noimage.png" alt="">
+		 	{% endif %}
+		 </div>
+	{% endif %}
+	{% endif %}
+	{% endfor %}
+	
+
+</section>

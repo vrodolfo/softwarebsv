@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Software BSV - Contacto</title>
+	<!-- Boostrap Core -->
+	<link rel="stylesheet" href="{% static '../static/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '../static/style.css' %}">
+	<link rel="stylesheet" href="{% static '../static/backendstyle.css' %}">
+	<link rel="icon" href="{% static '/../static/images/minilogo.png' %}" />
+</head>
+<body class="backend">
+	
+	{% include './backendMenu.html' %}
+
+	<div class="container about-div">
+
+			<h1 class="about-title">Contacto
+			</h1>
+
+			{% if messages %}
+			<ul class="messages">
+			    {% for message in messages %}
+			    <li{% if message.tags %} class="{{ message.tags }} red"{% endif %}>{{ message }}</li>
+			    {% endfor %}
+			</ul>
+			{% endif %}
+		<a class="new" href="/contact/edit">Editar Contacto</a>
+
+		<table class="about-table">
+				
+				<tr>
+					<td class="about-table-title">Nombre:</td>
+					<td class="about-table-content">{{company.name}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Descripci&oacute;n:</td>
+					<td class="about-table-content">{{company.shortdesc}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Tel&eacute;fono 1:</td>
+					<td class="about-table-content">{{company.phone1}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Tel&eacute;fono 2:</td>
+					<td class="about-table-content">{{company.phone2}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Tel&eacute;fono 3:</td>
+					<td class="about-table-content">{{company.phone3}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Email:</td>
+					<td class="about-table-content">{{company.email}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Direcci&oacute;n 1:</td>
+					<td class="about-table-content">{{company.address1}}</td>
+				</tr>
+				<tr>
+					<td class="about-table-title">Direcci&oacute;n 2:</td>
+					<td class="about-table-content">{{company.address2}}</td>
+				</tr>
+				
+			</table>
+		
+		
+		
+	</div>
+	<br><br><br><br>
+	{% include './footer2.html' %}
+</body>
+	{% include './scripts.html' %}
+</html>

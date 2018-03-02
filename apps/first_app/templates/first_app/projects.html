@@ -1,0 +1,132 @@
+
+
+<section class="parallax projects" id="projects">
+	<br><br><br><br><br>
+	<div class="row row2">
+		<div class="col-md-offset-1 col-md-11">
+			{% if request.session.language == "english" %}
+			    <h1 class="title">Projects</h1>
+			{% else %}
+				<h1 class="title">Proyectos</h1>
+			{% endif %}
+			
+		</div>
+		<br>
+	</div>
+
+	<div class="row row2">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+				{% if request.session.language == "english" %}
+				    <h1 class="subtitle">Featured Projects</h1>
+				    
+				{% else %}
+					<h1 class="subtitle">Proyectos Mas Relevantes</h1>
+					
+				{% endif %}
+			
+				
+				<div class="projects-div">
+					<div class="table-responsive">	
+					<table class="table ">
+						<thead>
+							<tr>
+								{% if request.session.language == "english" %}
+								<th>Project</th>
+								<th>Client</th>
+								<th>Status</th>
+								<th>Description</th>
+								<th>Hours</th>
+								<th>Platform</th>
+								<th>Technologies</th>
+								
+								{%else%}
+
+								<th>Proyecto</th>
+								<th>Cliente</th>
+								<th>Estatus</th>
+								<th>Descripci&oacute;n</th>
+								<th>Horas</th>
+								<th>Plataforma</th>
+								<th>Tecnolog&iacute;as</th>
+								
+								{%endif%}
+							</tr>
+						</thead>
+						<tbody>
+							{% for project in projects %}
+							{% if project.linkstatus == True %}
+							<tr class="projects-row" onclick="document.location = '/projects/{{project.id}}/show';">
+								<td class="">
+									{{project.name}}
+								</td>
+								<td class="">
+									{{project.client.name}}
+								</td>
+								<td class="">
+									{{project.projectsStatus}}
+								</td>
+								<td class="">
+									{{project.descShort}}
+								</td>
+								<td class="">
+									{{project.hours}}
+								</td>
+								<td class="">
+									{{project.platform}}
+								</td>
+								<td class="">
+									{{project.technologies}}
+								</td>
+								
+
+								</tr>
+
+								{% else %}
+								<tr>
+								<td class="">
+									{{project.name}}
+								</td>
+								<td class="">
+									{{project.client.name}}
+								</td>
+								<td class="">
+									{{project.projectsStatus}}
+								</td>
+								<td class="">
+									{{project.descShort}}
+								</td>
+								<td class="">
+									{{project.hours}}
+								</td>
+								<td class="">
+									{{project.platform}}
+								</td>
+								<td class="">
+									{{project.technologies}}
+								</td>
+								
+								</tr>
+								{%endif%}
+							{%endfor%}
+						</tbody>
+					</table>
+					</div>
+			</div>
+
+			{% if request.session.language == "english" %}
+			    <a class="link-projects" href="/projects/0/show">View all Projects</a>
+			{% else %}
+				<a class="link-projects"  href="/projects/0/show">Ver todos los proyectos</a>
+			{% endif %}
+
+		</div>
+		<div class="col-md-1"></div>
+		
+	</div>
+
+				<br><br><br>
+
+
+
+</section>

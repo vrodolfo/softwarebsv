@@ -1,0 +1,75 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
+	  <div class="container">
+		   <div class="row row2">
+		  		<div class="col-md-12">
+		  			<div class="navbar-header custom-header-top">	
+						<img class="phone" src="../static/images/white-phone.png" alt="phone">
+		  				
+		  				{{company.phone1}}
+		  				| Lan: 
+		  				<a href="/language/spanish/"><img class="flag" src="../static/images/venezuela.png" alt="flag"></a>
+						&nbsp;
+		  				<a href="/language/english/"><img class="flag" src="../static/images/usa.png" alt="flag"></a>
+
+		  				{% if request.session.user == "admin" %}
+							<a class="logout" href="/sessions/destroy" class="page-scroll">Logout</a>
+						{% endif %}
+
+		  			</div>
+		  		</div>
+		  	</div> 
+	  
+		  	<div class="row row2">
+		  		<div class="col-md-12">
+		  			<div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="/main">
+				      	<div class="logoHeader">	
+				      		Software BSV <br>
+				      		<p class="logoinner">
+				      			{% if request.session.language == "english" %}
+				      			I.T. Consulting
+				      			{% else %}
+				      			Consultoria de Sistemas
+				      			{% endif %}
+				      		</p>
+
+				      	</div>
+				      </a>
+		    		</div>
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav navbar-right custom-header">
+			      	{% if request.session.language == "english" %}
+			        <li><a href="#about"     class="page-scroll">About</a></li>
+			        <li><a href="#services"  class="page-scroll">Services</a></li>
+			        <li><a href="#projects"  class="page-scroll">Projects</a></li>
+			        <li><a href="#clients"   class="page-scroll">Clients</a></li>
+			        <li><a href="#contact"   class="page-scroll">Contact</a></li>
+			        
+			        {% else %}
+			        <li><a href="#about"     class="page-scroll">Quienes Somos</a></li>
+			        <li><a href="#services"  class="page-scroll">Servicios</a></li>
+			        <li><a href="#projects"  class="page-scroll">Proyectos</a></li>
+			        <li><a href="#clients"   class="page-scroll">Clientes</a></li>
+			        <li><a href="#contact"   class="page-scroll">Contacto</a></li>
+			        
+			        {% endif %}
+
+			        {% if request.session.user == "admin" %}
+				      	<li><a href="/dashboard" target="_blank"   class="">Backend</a></li>
+				    {% else %}
+				    	<li><a href="/sessions/new" target="_blank" class="">Login</a></li>
+				    {% endif %}
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+		  	</div>
+		  	</div>
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+

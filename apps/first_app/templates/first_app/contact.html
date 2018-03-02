@@ -1,0 +1,62 @@
+<section class="parallax contact" id="contact">
+	<br><br><br><br><br>
+	<div class="row row2">
+		<div class="col-md-offset-1 col-md-11">
+			{% if request.session.language == "english" %}
+			    <h1 class="title">Contact</h1>
+			{% else %}
+			    <h1 class="title">Contacto</h1>
+			{% endif %}
+			
+		</div>
+		<br>
+
+	</div>
+
+	<div class="row row2">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+
+
+			{% if request.session.language == "english" %}
+			<div class="about-content">
+				<h3>Phone: {{company.phone1}}</h3>
+				<h3>Address: {{company.address1}}</h3>
+				<h3>Email: {{company.email}}</h3>
+				
+				<br>
+				
+			    <div type="button" class="sendemail" data-toggle="modal" data-target="#myModal">
+			    	Send Email
+				</div>
+			</div>
+
+			{% else %}
+			<div class="about-content">
+				<h3>Tel&eacute;fono: {{company.phone1}}</h3>
+				<h3>Direcci&oacute;n: {{company.address1}}</h3>
+				<h3>Email: {{company.email}}</h3>
+				
+				<br>
+				
+			    <div type="button" class="sendemail" data-toggle="modal" data-target="#myModal">
+			    	Enviar Email
+				</div>
+				
+			</div>
+
+			{%endif%}
+
+
+			<br><br> 
+
+
+
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+
+
+	<br><br><br><br>
+</section>

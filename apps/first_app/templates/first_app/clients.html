@@ -1,0 +1,84 @@
+<section class="parallax clients" id="clients">
+	<br><br><br><br><br>
+	<div class="row row2">
+		<div class="col-md-offset-1 col-md-11">
+			{% if request.session.language == "english" %}
+			    <h1 class="title">Clients</h1>
+			{% else %}
+			    <h1 class="title">Clientes</h1>
+			{% endif %}
+			
+		</div>
+		<br>
+	</div>
+
+	
+		{% for client in clients %}
+			{% if client.active %}
+				<div class="row row2">
+				<div class="col-md-1"></div>
+				
+					<div class="col-md-10">
+						<div class="client-div">
+								{% if client.linkstatus %}
+				
+								<a class="test2" href="/clients/{{client.id}}/show">
+									{% if client.imageMenu %}
+									<img class="img-responsive" src="/../static/images/{{client.imageMenu}}" alt="">
+									{% else %}
+									<img class="img-responsive" src="/../static/images/noimage.png" alt="">
+									{% endif %}
+									<div>
+										<h3>{{client.nameShort}}</h3>
+										<p>{{client.content1|linebreaks}}</p>
+									</div>
+								</a>
+								{% else %}
+								
+									{% if client.imageMenu %}
+									<img class="img-responsive" src="/../static/images/{{client.imageMenu}}" alt="">
+									{% else %}
+									<img class="img-responsive" src="/../static/images/noimage.png" alt="">
+									{% endif %}
+									<div>
+										<h3>{{client.nameShort}}</h3>
+										<p>{{client.content1|linebreaks}}</p>
+									</div>
+								
+								{% endif %}
+
+								{%if client.website %}
+									<a class="client-link" href="{{client.website}}" target="_blank">
+										{% if request.session.language == "english" %}
+										Visit Website
+										{%else%}
+										Visitar Pagina
+										{%endif%}
+									</a>
+									
+								{%else%}
+
+									<p class="client-link2">
+									{% if request.session.language == "english" %}
+										Not Available.
+									{%else%}
+										No Disponible.
+									{%endif%}</p>
+									
+									
+								{%endif%}
+								
+						</div>
+					</div>
+					<div class="col-md-1"></div>
+					
+				
+				</div>
+				<br><br>
+			{% endif %}
+		{% endfor %}
+				
+				
+	
+	<br><br><br><br><br>	
+</section>

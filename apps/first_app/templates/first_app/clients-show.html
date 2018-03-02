@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en"  id="html">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Software BSV - Clientes</title>
+	<!-- Boostrap Core -->
+	<link rel="stylesheet" href="{% static '/../static/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/style.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/backendstyle.css' %}">
+	<link rel="icon" href="{% static '/../static/images/minilogo.png' %}" />
+</head>
+<body class="backend" id="body">
+	
+	{% include './menu-details.html' %}
+
+	<div class="container about-div">
+			
+			<h1 class="about-title">
+				{% if request.session.language == "english" %}
+					Clients
+				{%else%}
+					Clientes
+				{%endif%}
+			</h1>
+
+			{% include './clients-slider.html' %}
+
+			<br><br>
+
+			<h2 class="about-subtitle">
+				{{client.name}}
+			</h2>
+
+			<div class="about-content">
+				{% if request.session.language == "english" %}
+					{%if empty%}Please click on a Client from the list Above.{%endif%}
+				{%else%}
+					{%if empty%}Por favor Seleccione un Cliente de la lista.{%endif%}
+				{%endif%}
+				{{client.content2|linebreaks}}
+				
+			</div>
+
+
+			<br><br>
+
+	
+		
+	</div>
+
+<br><br>
+	{% include './footer2.html' %}
+</body>
+
+<!-- scripts -->
+	<script src="/../static/js/jquery-3.1.1.js"></script>
+	<script src="/../static/js/jquery.easing.1.3.js"></script>
+	<script src="/../static/js/bootstrap.min.js"></script>
+	<script src="/../static/js/myscrollto.js"></script>	
+	<script src="/../static/js/owl.carousel.min.js"></script>
+	<script src="/../static/js/custom.js"></script>
+
+</html>

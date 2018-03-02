@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Software BSV - Proyectos</title>
+	<!-- Boostrap Core -->
+	<link rel="stylesheet" href="{% static '/../static/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/style.css' %}">
+	<link rel="stylesheet" href="{% static '/../static/backendstyle.css' %}">
+	<link rel="icon" href="{% static '/../static/images/minilogo.png' %}" />
+</head>
+<body class="backend" id="body">
+	
+	{% include './menu-details.html' %}
+
+	<div class="container about-div">
+			
+			<h1 class="about-title">
+				{% if request.session.language == "english" %}
+					All Projects
+				{%else%}
+					Lista de Proyectos
+				{%endif%}
+			</h1>
+
+
+			<br><br>
+
+			<div class="projects-div">
+					<div class="table-responsive">	
+					<table class="table">
+						<thead>
+							<tr>
+								{% if request.session.language == "english" %}
+								<th>Project</th>
+								<th>Client</th>
+								<!-- <th>Fecha Inicio</th>
+								<th>Fecha Fin</th> -->
+								<th>Status</th>
+								<th>Description</th>
+								<th>Hours</th>
+								<th>Platform</th>
+								<th>Technologies</th>
+								
+								{%else%}
+
+								<th>Proyecto</th>
+								<th>Cliente</th>
+								<th>Estatus</th>
+								<th>Descripci&oacute;n</th>
+								<th>Horas</th>
+								<th>Plataforma</th>
+								<th>Tecnolog&iacute;as</th>
+								
+								{%endif%}
+							</tr>
+						</thead>
+						<tbody>
+							{% for project in projects %}
+							{% if project.linkstatus == True %}
+							<tr class="projects-row" onclick="document.location = '/projects/{{project.id}}/show';">
+								<td class="">
+									{{project.name}}
+								</td>
+								<td class="">
+									{{project.client.name}}
+								</td>
+								<td class="">
+									{{project.projectsStatus}}
+								</td>
+								<td class="">
+									{{project.descShort}}
+								</td>
+								<td class="">
+									{{project.hours}}
+								</td>
+								<td class="">
+									{{project.platform}}
+								</td>
+								<td class="">
+									{{project.technologies}}
+								</td>
+								
+
+								</tr>
+
+								{% else %}
+								<tr>
+								<td class="">
+									{{project.name}}
+								</td>
+								<td class="">
+									{{project.client.name}}
+								</td>
+								<td class="">
+									{{project.projectsStatus}}
+								</td>
+								<td class="">
+									{{project.descShort}}
+								</td>
+								<td class="">
+									{{project.hours}}
+								</td>
+								<td class="">
+									{{project.platform}}
+								</td>
+								<td class="">
+									{{project.technologies}}
+								</td>
+								
+								</tr>
+								{%endif%}
+							{%endfor%}
+						</tbody>
+					</table>
+					</div>
+			</div>
+
+
+
+			<h2 class="about-subtitle">
+				{% if empty == True %}
+					{% if request.session.language == "english" %}
+						Please click on a project form the list above.
+					{% else %}
+						Por favor seleccione un projecto de la lista para ver el detalle.
+					{% endif %}
+
+				{% else %}
+					{% if request.session.language == "english" %}
+						Project:
+					{% else %}
+						Proyecto:
+					{% endif %}
+					{{ project.nameLarge }}
+				{% endif %}
+				
+				
+			</h2>
+
+			{% if request.session.language == "english" %}
+					{% if project.client.name %}
+					<div class="about-content">
+						<h3>Client:</h3>
+						{{ project.client.name }}
+					</div>
+					{% endif %}
+
+					{% if project.projectsStatus %}
+					<div class="about-content">
+						<h3>Project Status:</h3>
+						{{ project.projectsStatus }}
+					</div>
+					{% endif %}
+
+					{% if project.platform %}
+					<div class="about-content">
+						<h3>Platform:</h3>
+						{{ project.platform }}
+					</div>
+					{% endif %}
+
+					{% if project.technologies %}
+					<div class="about-content">
+						<h3>Tehcnologies:</h3>
+						{{ project.technologies }}
+					</div>
+					{% endif %}
+
+					{% if project.hours %}
+					<div class="about-content">
+						<h3>Hours:</h3>
+						{{ project.hours }}
+					</div>
+					{% endif %}
+
+					{% if project.teamsize %}
+					<div class="about-content">
+						<h3>Team Size:</h3>
+						{{ project.teamsize }}
+					</div>
+					{% endif %}
+
+					{% if project.descLong %}
+					<div class="about-content">
+						<h3>Description:</h3>
+						{{ project.descLong }}
+					</div>
+					{% endif %}
+			{% else %}
+					{% if project.client.name %}
+					<div class="about-content">
+						<h3>Cliente:</h3>
+						{{ project.client.name }}
+					</div>
+					{% endif %}
+
+					{% if project.projectsStatus %}
+					<div class="about-content">
+						<h3>Estatus del Proyecto:</h3>
+						{{ project.projectsStatus }}
+					</div>
+					{% endif %}
+
+					{% if project.platform %}
+					<div class="about-content">
+						<h3>Plataforma:</h3>
+						{{ project.platform }}
+					</div>
+					{% endif %}
+
+					{% if project.technologies %}
+					<div class="about-content">
+						<h3>Tecnolog&iacute;as:</h3>
+						{{ project.technologies }}
+					</div>
+					{% endif %}
+
+					{% if project.hours %}
+					<div class="about-content">
+						<h3>Horas Hombre:</h3>
+						{{ project.hours }}
+					</div>
+					{% endif %}
+
+					{% if project.teamsize %}
+					<div class="about-content">
+						<h3>Cantidad de Recursos:</h3>
+						{{ project.teamsize }}
+					</div>
+					{% endif %}
+
+					{% if project.descLong %}
+					<div class="about-content">
+						<h3>Descripci&oacute;n:</h3>
+						{{ project.descLong }}
+					</div>
+					{% endif %}
+			{% endif %}
+
+		<br><br>
+	</div>
+
+	<br><br>
+	{% include './footer2.html' %}
+</body>
+
+<!-- scripts -->
+	<script src="/../static/js/jquery-3.1.1.js"></script>
+	<script src="/../static/js/jquery.easing.1.3.js"></script>
+	<script src="/../static/js/bootstrap.min.js"></script>
+	<script src="/../static/js/myscrollto.js"></script>	
+	<script src="/../static/js/owl.carousel.min.js"></script>
+	<script src="/../static/js/custom.js"></script>
+
+</html>
